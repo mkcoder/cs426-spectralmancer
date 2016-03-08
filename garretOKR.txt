@@ -1,0 +1,7 @@
+Schedule and deliverable:
+    - Movement of controllable character (THU by 2pm est 2hr)
+        - camera follows character over-the-shoulder
+    - Spell (Chain Lightning) (THU by 2pm est 3hr)
+        - 3 rigidbody bounces
+    - Summoning zombie/skeleton (THU by 2pm est 2hr)
+        - Will summon a zombie/skeleton when pressing a button
