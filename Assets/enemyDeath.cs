@@ -15,7 +15,7 @@ public class enemyDeath : MonoBehaviour {
 
 	//change Player to the name of the controllable character
 	public void onCollisionEnter (Collision node) {
-		if(node.gameObject.tag == "Player") {
+		if(node.gameObject.name == "LightningBall") {
 			Destroy(gameObject);
 		}
 	}
