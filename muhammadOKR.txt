@@ -1,3 +1,0 @@
-First game prototype:
-  - create a working menu system - 3/11 (1 hr)
-  - create a timmer that does something after time is up - 3/11 (2 hr)
