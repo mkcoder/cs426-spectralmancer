@@ -1,3 +1,6 @@
 Library/*
 Temp/*
-ProjectSettings/*
+*.suo
+cs426-unfinished-tales.CSharp.csproj
+*.sln
+cs426-unfinished-tales.CSharp.csproj
