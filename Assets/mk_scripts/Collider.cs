@@ -6,11 +6,12 @@ using System.Collections.Generic;
 public class Collider : MonoBehaviour
 {
     public List<string> NamesList;
-
-
+    
     // Use this for initialization
     void Start ()
     {
+        NamesList = new List<string>();
+        NamesList.Add("LightningBall");
         if (GetComponent<Rigidbody>() == null)
         {
             var r = gameObject.AddComponent<Rigidbody>();

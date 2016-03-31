@@ -68,15 +68,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Pixelplacement\iTweenPath\iTweenPath.cs" />
     <Compile Include="Assets\billboard.cs" />
     <Compile Include="Assets\enemyDeath.cs" />
     <Compile Include="Assets\gf_scripts\LightningBall.cs" />
     <Compile Include="Assets\gf_scripts\Shooter.cs" />
     <Compile Include="Assets\mk_scripts\Collider.cs" />
     <Compile Include="Assets\mk_scripts\LoadOnClick.cs" />
+    <Compile Include="Assets\mk_scripts\MK_AI.cs" />
     <Compile Include="Assets\mk_scripts\TimeText.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
