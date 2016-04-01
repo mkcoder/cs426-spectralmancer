@@ -74,6 +74,7 @@
     <Compile Include="Assets\gf_scripts\LightningBall.cs" />
     <Compile Include="Assets\gf_scripts\Shooter.cs" />
     <Compile Include="Assets\mk_scripts\Collider.cs" />
+    <Compile Include="Assets\mk_scripts\Generator.cs" />
     <Compile Include="Assets\mk_scripts\LoadOnClick.cs" />
     <Compile Include="Assets\mk_scripts\MK_AI.cs" />
     <Compile Include="Assets\mk_scripts\TimeText.cs" />
