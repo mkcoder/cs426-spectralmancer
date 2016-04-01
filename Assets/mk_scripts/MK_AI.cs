@@ -14,10 +14,14 @@ public class MK_AI : MonoBehaviour
         _pathChoice = pathChoice;
     }
 
+    public void startWalk()
+    {
+        iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath(_pathChoice), "time", time));
+    }
+
 	// Use this for initialization
 	void Start ()
-	{
-	    iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath(_pathChoice), "time", time));
+	{	    
 	}    
 
 	// Update is called once per frame

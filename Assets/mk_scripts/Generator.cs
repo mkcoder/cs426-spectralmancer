@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 /// <summary>
@@ -15,15 +16,9 @@ public class Generator : MonoBehaviour
     // Use this for initialization
 	void Start ()
 	{
-	    // create a teen
-	    for (int i = 0; i < 1; i++)
-        {
-            _dog = GameObject.Find("dog");
-            _teen = GameObject.Find("teen");
-            _iTeen = (GameObject)Instantiate(_teen, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
-            _iTeen.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        }
-	}
+        _dog  = GameObject.Find("dog");
+        _teen = GameObject.Find("teen");
+    }
 
     // Update is called once per frame
 	void Update ()
@@ -34,11 +29,24 @@ public class Generator : MonoBehaviour
 
     private void GenerateGameObject()
     {
-        // create a teen
-        for (int i = 0; i < 1; i++)
+
+        if (currentFrameCount%2 == 0)
         {
             _iTeen = (GameObject)Instantiate(_teen, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
             _iTeen.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            MK_AI ai = (MK_AI)_iTeen.GetComponent("MK_AI");
+            if (currentFrameCount % 4 == 0)
+                ai.setPathChoice("leftToRight");
+            ai.startWalk();
+        }
+        else
+        {
+            _iDog = (GameObject)Instantiate(_dog, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+            _iDog.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            MK_AI ai = (MK_AI)_iDog.GetComponent("MK_AI");
+            if (currentFrameCount % 16 == 0)
+                ai.setPathChoice("leftToRight");
+            ai.startWalk();
         }
 
     }
