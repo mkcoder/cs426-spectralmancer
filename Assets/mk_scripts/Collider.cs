@@ -10,9 +10,8 @@ public class Collider : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        NamesList = new List<string>(4);
+        NamesList = new List<string>();
         NamesList.Add("LightningBall");
-
         if (GetComponent<Rigidbody>() == null)
         {
             var r = gameObject.AddComponent<Rigidbody>();

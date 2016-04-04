@@ -12,15 +12,12 @@ public class LightningBall : MonoBehaviour {
         Renderer rend = gameObject.GetComponent<Renderer>();
         rend.material.color = Color.yellow;
         bounceCounter = 3;
-        Object.Destroy(gameObject, 3.0f);
     }
 
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.name == "kitt_Body1" || collision.gameObject.tag == "dog" ||
-            collision.gameObject.tag == "teen" || collision.gameObject.tag == "tombstone" ||
-            collision.gameObject.tag.Substring(0,4) == "Fence")
+        if (collision.gameObject)
         {
             --bounceCounter;
 
@@ -37,6 +34,7 @@ public class LightningBall : MonoBehaviour {
     }
 
     void Update () {
-
+        if (bounceCounter == 0)
+            Destroy(gameObject);
     }
 }
