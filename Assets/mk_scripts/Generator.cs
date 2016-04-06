@@ -32,7 +32,7 @@ public class Generator : MonoBehaviour
 
         if (currentFrameCount%2 == 0)
         {
-            _iTeen = (GameObject)Instantiate(_teen, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+            _iTeen = (GameObject)Instantiate(_teen, new Vector3(13.4f, 2.358329f, 3.596587f), Quaternion.identity);
             _iTeen.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             MK_AI ai = (MK_AI)_iTeen.GetComponent("MK_AI");
             if (currentFrameCount % 4 == 0)
@@ -41,7 +41,7 @@ public class Generator : MonoBehaviour
         }
         else
         {
-            _iDog = (GameObject)Instantiate(_dog, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+            _iDog = (GameObject)Instantiate(_dog, new Vector3(13.4f, 2.358329f, 3.596587f), Quaternion.identity);
             _iDog.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             MK_AI ai = (MK_AI)_iDog.GetComponent("MK_AI");
             if (currentFrameCount % 16 == 0)
