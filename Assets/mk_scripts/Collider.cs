@@ -6,12 +6,14 @@ using System.Collections.Generic;
 public class Collider : MonoBehaviour
 {
     public List<string> NamesList;
-    
+    private TimeText killed;
     // Use this for initialization
     void Start ()
     {
         NamesList = new List<string>(4);
         NamesList.Add("LightningBall");
+        killed = (TimeText)GameObject.Find("timer").GetComponent("TimeText");
+        
 
         if (GetComponent<Rigidbody>() == null)
         {
@@ -37,6 +39,7 @@ public class Collider : MonoBehaviour
     {
         if (canDestroy(col.gameObject.name))
         {
+            killed.killed();
             Destroy(gameObject);
             Debug.Log(gameObject.name + " has [start] collidied");
         }
