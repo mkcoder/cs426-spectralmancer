@@ -9,7 +9,7 @@ public class TimeText : MonoBehaviour {
     // Use this for initialization
     public Text timeText;
     public float timeLeft = 30.0f;
-    public int left = 0;
+    private int left = 0;
 
 	void Start ()
 	{
@@ -20,13 +20,30 @@ public class TimeText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (left == 0)
+        {
+            timeText.color = new Color(255, 0, 0);
+            timeText.text = "LEVEL COMPLETED";
+            SceneManager.LoadScene(3);
+        }
+
         timeLeft -= Time.deltaTime;
         timeText.text = "Time: " + (System.Math.Round(timeLeft, MidpointRounding.AwayFromZero));
         if ( timeLeft <= 0.0 )
-        {            
-            timeText.color = new Color(255, 0, 0);
-            timeText.text = "LEVEL COMPLETED";
-            SceneManager.LoadScene(2);
+        {
+            // dfa3c81
+            if (left == 0)
+            {
+                timeText.color = new Color(255, 0, 0);
+                timeText.text = "LEVEL COMPLETED";
+                SceneManager.LoadScene(3);
+            }
+            else
+            {
+                timeText.color = new Color(255, 0, 0);
+                timeText.text = "LEVEL COMPLETED";
+                SceneManager.LoadScene(2);
+            }
         }
     }
 
