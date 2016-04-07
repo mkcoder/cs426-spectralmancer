@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD:asgn8/Library/LastSceneManagerSetup.txt
 - path: Assets/maze.unity
+=======
+- path: Assets/mk_scene/main_menu.unity
+>>>>>>> localwork:Library/LastSceneManagerSetup.txt
   isLoaded: 1
   isActive: 1
