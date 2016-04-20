@@ -51,6 +51,12 @@ public class Generator : MonoBehaviour
         return false;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Skeleton" || collision.gameObject.tag == "skeleton")
+            Destroy(gameObject);
+    }
+
     private void GenerateGameObject()
     {
         for (int i = 0; i < tdPerSec; i++)

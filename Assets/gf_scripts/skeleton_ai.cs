@@ -21,8 +21,8 @@ public class skeleton_ai : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void Update () {
-        enemyList.Clear();
+	//void Update () {
+        /*enemyList.Clear();
 
         foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("teen"))
         {
@@ -46,8 +46,8 @@ public class skeleton_ai : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, target.position, 5 * Time.deltaTime);
 
         //transform.position = Vector3.MoveTowards(transform.position, target.position, 5 * Time.deltaTime);
-
-    }
+        */
+    //}
 
 
 }

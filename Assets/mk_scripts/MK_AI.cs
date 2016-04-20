@@ -14,6 +14,11 @@ public class MK_AI : MonoBehaviour
         _pathChoice = pathChoice;
     }
 
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.name == "Skeleton" || collision.gameObject.tag == "skeleton")
+            Destroy(gameObject);
+    }
+
     public void startWalk()
     {
         iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath(_pathChoice), "time", time));
