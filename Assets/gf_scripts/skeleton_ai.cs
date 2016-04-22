@@ -5,10 +5,12 @@ public class skeleton_ai : MonoBehaviour {
     public AudioClip swords;
     AudioSource audio;
 
+
     // Use this for initialization
     void Start () {
         audio = GetComponent<AudioSource>();
-
+        
+        
         Object.Destroy(gameObject, 15.0f);
         
         StartCoroutine(deathCoroutine());
@@ -16,6 +18,7 @@ public class skeleton_ai : MonoBehaviour {
 	
     void Update ()
     {
+                
     }
 
     public void OnCollisionEnter(Collision col)
@@ -27,12 +30,16 @@ public class skeleton_ai : MonoBehaviour {
             audio.PlayOneShot(swords, 1);
         }
         else if (col.gameObject.tag == "lightning")
-            Object.Destroy(gameObject);
+        {
+
+            Object.Destroy(gameObject);             
+        }
     }
 
     System.Collections.IEnumerator deathCoroutine()
     {
         yield return new WaitForSeconds(13);
         this.GetComponent<Animation>().Play("die");
+
     }
 }

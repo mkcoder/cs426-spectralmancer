@@ -6,6 +6,7 @@ public class Shooter : MonoBehaviour {
     public Transform    projectilePos;
     public Rigidbody    skeleton;
 
+
     void Update () {
 
         if (Input.GetKeyUp(KeyCode.Q))
@@ -16,7 +17,9 @@ public class Shooter : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.E))
         {
-            Rigidbody summoned = Instantiate(skeleton, projectilePos.position, projectilePos.rotation) as Rigidbody;
+
+                Rigidbody summoned = Instantiate(skeleton, projectilePos.position, projectilePos.rotation) as Rigidbody;
+
         }
     }
 }
