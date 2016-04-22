@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 
 public class skeleton_ai : MonoBehaviour {
-
-    private Renderer rend;
     List<Transform> enemyList;
     float min;
     float dist;
@@ -12,8 +10,6 @@ public class skeleton_ai : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rend = gameObject.GetComponent<Renderer>();
-        rend.material.color = Color.grey;
 
         Object.Destroy(gameObject, 10.0f);
     }
