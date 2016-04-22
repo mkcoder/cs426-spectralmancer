@@ -38,7 +38,7 @@ public class Collider : MonoBehaviour
     public void OnCollisionEnter(Collision col)
     {
 
-            if (col.gameObject.name == "Skeleton" || col.gameObject.tag == "skeleton")
+            if (col.gameObject.name == "skeletonDark" || col.gameObject.tag == "skeletonDark")
                 Destroy(gameObject);
 
 
