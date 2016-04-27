@@ -44,7 +44,7 @@ public class Collider : MonoBehaviour
 
         if (canDestroy(col.gameObject.name))
         {
-            killed.killed();
+            TimeText.killed();
             Destroy(gameObject);
             Debug.Log(gameObject.name + " has [start] collidied");
         }

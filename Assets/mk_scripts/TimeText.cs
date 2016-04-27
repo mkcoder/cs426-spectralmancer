@@ -3,18 +3,25 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = System.Object;
 
 public class TimeText : MonoBehaviour {
 
     // Use this for initialization
     public Text timeText;
     public float timeLeft = 30.0f;
-    private int left = 0;
+    private static int left = 0;
+    private static int userScore = 0;
+    private int totalPossibleScore = 0;
+    static Object o_lock = new Object();
+    static Object o_lock2 = new Object();
 
-	void Start ()
-	{
-	    var generator = (Generator) GameObject.Find("Generators").GetComponent("Generator");
-	    left = generator.limit;
+    void Start ()
+    {
+        left = 0;
+        userScore = 0;
+        var generator = (Generator) GameObject.Find("Generators").GetComponent("Generator");
+        totalPossibleScore = left = generator.limit;
         timeText.text = "Time: " + timeLeft;
 	}
 	
@@ -24,11 +31,27 @@ public class TimeText : MonoBehaviour {
         {
             timeText.color = new Color(255, 0, 0);
             timeText.text = "LEVEL COMPLETED";
+            left = 0;
+            userScore = 0;
             SceneManager.LoadScene(3);
         }
 
+        if (userScore >= left)
+        {
+
+            Debug.Log("User score is greater than >= " + totalPossibleScore);
+            timeText.color = new Color(255, 0, 0);
+            timeText.text = "You lost :(!";
+            left = 0;
+            userScore = 0;
+            SceneManager.LoadScene(2);
+        }
+
         timeLeft -= Time.deltaTime;
-        timeText.text = "Time: " + (System.Math.Round(timeLeft, MidpointRounding.AwayFromZero));
+
+	    timeText.text = buildTextString();
+            
+
         if ( timeLeft <= 0.0 )
         {
             // dfa3c81
@@ -36,15 +59,26 @@ public class TimeText : MonoBehaviour {
             {
                 timeText.color = new Color(255, 0, 0);
                 timeText.text = "LEVEL COMPLETED";
+                left = 0;
+                userScore = 0;
                 SceneManager.LoadScene(3);
             }
             else
             {
                 timeText.color = new Color(255, 0, 0);
                 timeText.text = "LEVEL COMPLETED";
+                left = 0;
+                userScore = 0;
                 SceneManager.LoadScene(2);
             }
         }
+    }
+
+    private string buildTextString()
+    {
+        return String.Format("Time: {0} Score: {1} Enemies Left: {2}",
+         System.Math.Round(timeLeft, MidpointRounding.AwayFromZero),
+         userScore, left);
     }
 
     public float getTime()
@@ -52,10 +86,23 @@ public class TimeText : MonoBehaviour {
         return timeLeft;        
     }
 
-    public void killed()
+    public static void killed()
     {
-        this.left--;
-        Debug.Log("Killed");
-        Debug.Log(left);
+        lock (o_lock)
+        {
+            left--;
+            Debug.Log("Killed");
+            Debug.Log(left);
+        }
+    }
+
+    public static void entered()
+    {
+        lock (o_lock2)
+        {
+            userScore++;
+            Debug.Log("User Score: ");
+            Debug.Log(userScore);
+        }
     }
 }
