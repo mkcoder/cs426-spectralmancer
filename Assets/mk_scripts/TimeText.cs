@@ -35,8 +35,7 @@ public class TimeText : MonoBehaviour {
             userScore = 0;
             SceneManager.LoadScene(3);
         }
-
-        if (userScore >= left)
+        else if (userScore >= left)
         {
 
             Debug.Log("User score is greater than >= " + totalPossibleScore);
@@ -48,7 +47,6 @@ public class TimeText : MonoBehaviour {
         }
 
         timeLeft -= Time.deltaTime;
-
 	    timeText.text = buildTextString();
             
 
