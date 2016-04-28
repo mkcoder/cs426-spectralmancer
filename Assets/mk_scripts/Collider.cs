@@ -12,6 +12,7 @@ public class Collider : MonoBehaviour
     {
         NamesList = new List<string>(4);
         NamesList.Add("LightningBall");
+        NamesList.Add("skeletonDark");
         killed = (TimeText)GameObject.Find("timer").GetComponent("TimeText");
         
 
@@ -38,9 +39,11 @@ public class Collider : MonoBehaviour
     public void OnCollisionEnter(Collision col)
     {
 
-            if (col.gameObject.name == "skeletonDark" || col.gameObject.tag == "skeletonDark")
-                Destroy(gameObject);
-
+        if (col.gameObject.name == "skeletonDark" || col.gameObject.tag == "skeletonDark")
+        {
+            Destroy(gameObject);
+            TimeText.killed();
+        }
 
         if (canDestroy(col.gameObject.name))
         {

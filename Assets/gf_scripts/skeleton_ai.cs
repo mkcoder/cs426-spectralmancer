@@ -4,13 +4,13 @@ using System.Collections.Generic;
 public class skeleton_ai : MonoBehaviour {
     public AudioClip swords;
     AudioSource audio;
-
+    TimeText killed;
 
     // Use this for initialization
     void Start () {
         audio = GetComponent<AudioSource>();
-        
-        
+        killed = (TimeText)GameObject.Find("timer").GetComponent("TimeText");
+
         Object.Destroy(gameObject, 15.0f);
         
         StartCoroutine(deathCoroutine());
@@ -32,7 +32,8 @@ public class skeleton_ai : MonoBehaviour {
         else if (col.gameObject.tag == "lightning")
         {
 
-            Object.Destroy(gameObject);             
+            Object.Destroy(gameObject);
+            TimeText.killed();             
         }
     }
 
